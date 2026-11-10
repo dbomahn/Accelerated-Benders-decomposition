@@ -48,7 +48,7 @@ From the repository root:
 julia scripts/DichoBD.jl
 ```
 
-By default, the driver runs **one full accelerated Benders decomposition experiment** on `data/instances/test01S1.dat), using:
+By default, the driver runs **one full accelerated Benders decomposition experiment** on `data/instances/test01S1.dat`, using:
 
 | Parameter | Default |
 |---|---:|
