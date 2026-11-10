@@ -1,8 +1,7 @@
 # Accelerated Benders decomposition
 
 Julia implementation for the paper **Accelerated Benders decomposition for
-bi-objective mixed integer programming**. All Julia files use the .jl
-extension.
+bi-objective mixed integer programming**. 
 
 Set paths through environment variables rather than editing source files:
 ```sh
