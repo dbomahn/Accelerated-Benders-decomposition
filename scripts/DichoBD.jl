@@ -1,12 +1,9 @@
-# include("/home/k2g00/k2g3475/scnd/benders/Bendersfunctions.jl");
-# saveto = "/home/k2g00/k2g3475/scnd/benders/cuts/";tol = 1e-4;
 # sm  = Data(file);
 # file = "../instances/small/test01S1.dat"; tt = GenerateCuts(saveto,file,tol)
 
 include(joinpath(@__DIR__, "paths.jl"))
 include(joinpath(@__DIR__, "..", "src", "AcceleratedBD.jl"))
 # global fname = file[end-11:end-4]
-# pathh = "/home/ak121396/Desktop/instances/test/"
 # ins = readdir(pathh)[1:end]
 pathh = INSTANCE_DIR
 ins = readdir(pathh)[2:end]
@@ -52,7 +49,6 @@ CSV.write(joinpath(RESULTS_DIR, "ABDresults_leastViolated3.xlsx"), at, append=tr
 CSV.write(joinpath(RESULTS_DIR, "ABDtime.xlsx"), DataFrame(ins = sm.insfile[end-11:end-4], cput = round(adicho; digits=1), cut = "Lviolated"), append=true )
 
 plot([v,t3,t1],layout)
-# savefig(p,"/home/ak121396/Desktop/BendersFig/"*sm.insfile[end-11:end-4]*".png")
 i=2
 at.w[i]*at.obj1[i] + (1-at.w[i])*at.obj2[i]
 ct.w[i]*ct.obj1[i] + (1-ct.w[i])*ct.obj2[i]
@@ -67,7 +63,6 @@ for k=1:5
         CSV.write(joinpath(RESULTS_DIR, "AB$i")*"_"*"$pcut.xlsx", at, append=true, header=true, delim=' ')
         CSV.write(joinpath(RESULTS_DIR, "CBDtime$pcut.xlsx"), DataFrame(ins = sm.insfile[end-11:end-4], cput = round(cdicho; digits=1)), append=true )
         CSV.write(joinpath(RESULTS_DIR, "CB$i")*"_"*"$pcut.xlsx", ct, append=true, header=true, delim=' '); 
-        # CSV.write("/home/ak12 1396/Documents/experiment_results/CutsFrom.xlsx", ogw, append=true , header=true, delim=' ')
     else
         cdicho = @CPUelapsed csol,ct,ctt = ClassicBD(sm, wdg, rort, buf); 
         println(ct)

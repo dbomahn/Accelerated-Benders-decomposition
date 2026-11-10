@@ -15,7 +15,7 @@ layout = Layout(
     )
 )
 
-# include("/media/ak121396/USB DISK/SCNDdataGenerator.jl")
+
 # % $CO_2$ emission unit has changed from kg to g ($\times$ 10^3) 
 #######################  small instance Benders Decomposition  ########################
 

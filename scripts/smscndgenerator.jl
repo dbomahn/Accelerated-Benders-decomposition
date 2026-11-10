@@ -21,7 +21,6 @@ struct Data1
         data = readdlm(filepath);
         notafile = readdlm(NOTATIONS_FILE, '=');
         # notafile = readdlm("F:/scnd/Notations.txt", '=');
-        # notafile = readdlm("/home/k2g00/k2g3475/scnd/Notations.txt", '=');
         nota = notafile[1:end,1];  N= Dict();
         for i=1:length(nota)-1
             id1 = findall(x->x==nota[i], data)[1][1];
