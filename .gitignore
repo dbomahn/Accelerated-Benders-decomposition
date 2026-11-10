@@ -1,0 +1,7 @@
+data/instances/*
+!data/instances/README.md
+results/*
+!results/README.md
+*.log
+*.csv
+*.xlsx

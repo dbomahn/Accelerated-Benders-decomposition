@@ -1,0 +1,12 @@
+const PROJECT_ROOT = normpath(joinpath(@__DIR__, ".."))
+const INSTANCE_DIR = abspath(get(ENV, "SCND_INSTANCE_DIR", joinpath(PROJECT_ROOT, "data", "instances")))
+const RESULTS_DIR = abspath(get(ENV, "SCND_RESULTS_DIR", joinpath(PROJECT_ROOT, "results")))
+const NOTATIONS_FILE = abspath(get(ENV, "SCND_NOTATIONS_FILE", joinpath(INSTANCE_DIR, "Notations.txt")))
+const GENERATOR_INPUT_FILE = abspath(get(ENV, "SCND_GENERATOR_INPUT", joinpath(INSTANCE_DIR, "test03S4")))
+const GENERATOR_OUTPUT_DIR = abspath(get(ENV, "SCND_GENERATOR_OUTPUT_DIR", joinpath(INSTANCE_DIR, "generated")))
+const GENERATOR_METADATA_FILE = abspath(get(ENV, "SCND_GENERATOR_METADATA_FILE", joinpath(RESULTS_DIR, "ins.dat")))
+const CLASSIC_NDP_DIR = abspath(get(ENV, "SCND_CLASSIC_NDP_DIR", joinpath(RESULTS_DIR, "ndp", "DichoCB")))
+const ACCELERATED_NDP_DIR = abspath(get(ENV, "SCND_ACCELERATED_NDP_DIR", joinpath(RESULTS_DIR, "ndp", "DichoAB")))
+for directory in (RESULTS_DIR, GENERATOR_OUTPUT_DIR, CLASSIC_NDP_DIR, ACCELERATED_NDP_DIR)
+    mkpath(directory)
+end
