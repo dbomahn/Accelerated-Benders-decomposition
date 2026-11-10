@@ -1,0 +1,86 @@
+supplier= number of suppliers
+
+plant=number of plants
+
+distribution=number of DCs
+
+customer=number of customers
+
+transportation=Max number of transportation modes
+
+upperdistribution=Max number of DCs to be opened
+
+upperpants=Max number of plants to be opened
+
+ModeIJ=Number of available modes between each supplier and plant
+
+ModeJK=Number of available modes between each plant and DC
+
+ModeKL=Number of available modes between each DC and customer
+
+demand=customer's demand
+
+cas=Suppliers' capacity
+
+cap=plants' capacity
+
+cad=DCs' capacity
+
+fcp=Fixed cost of plants for each type of technology level
+
+fcd=Fixed cost of DCs for each type of technology level
+
+tcp=Transportation cost between each supplier and plant
+
+tcd=Transportation cost for each transportation mode between each plant and DC
+
+tcc=Transportation cost for each transportation mode between each DC and customer
+
+cep=Transportation emission for each transportation mode between each supplier and plant
+
+ced=Transportation emission for each transportation mode between each plant and DC
+
+cec=Transportation emission for each transportation mode between each DC and customer
+
+vcs= procurment cost for each supplier for each prouct
+
+vcp= production cost for each plant for each product and each technology level
+
+vcd= warehousing cost for each DC for each product and each technology level
+
+ves= procurment emission for each supplier for each product
+
+vep= production emission for each plant for each product and each technology level
+
+ved= warehousing emission for each DC for each product and each technology level
+
+Distancesuppliers=Distance between suppliers
+
+DistancePlants= Distance between plants
+
+DistanceDistributions=  Distance between Distributions
+
+DistanceCustomers=  Distance between customers
+
+pointCustmoer= coordinates of customers
+
+pointdistribution= coordinates of DCs
+
+pointplant= coordinates of plants
+
+pointsupplier= coordinates of suppliers
+
+LcapacityModesp= capacity of available modes between each supplier and plant
+
+LcapacityModepd= capacity of available modes between each plant and DC
+
+LcapacityModedc= capacity of available modes between each DC and customer
+
+fixedcostModesp= fixed cost of available modes between each supplier and plant
+
+fixedcostModepd= fixed cost of available modes between each plant and DC
+
+fixedcostModedc= fixed cost of available modes between each plant and DC //to be fixed to DC-customer 
+
+SuppliersAvailibility= availibility of each supplier for providing each product
+finish
