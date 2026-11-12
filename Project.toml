@@ -1,0 +1,15 @@
+name = "AcceleratedBendersDecomposition"
+uuid = "7a3f4d8e-2b61-4c90-a8e5-6d1f2c9b7043"
+version = "0.1.0"
+
+[deps]
+DelimitedFiles = "8bb1440f-4735-579b-a4ab-409b98df4dab"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
+
+[compat]
+julia = "1.10"
