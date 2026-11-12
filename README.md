@@ -38,7 +38,18 @@ Each `.dat` file is read by `Data` in `src/Data.jl`. It begins with the six netw
 - Julia and the packages imported by `src/AcceleratedBD.jl`.
 - A working CPLEX installation and valid licence. The optimisation models use CPLEX through JuMP.
 
-The repository does not currently provide a Julia project manifest, so package installation and version management must be handled in the local Julia environment.
+`Project.toml` defines the lightweight environment used by the automated data-reader tests. It does not yet declare or lock all optimisation and reporting dependencies used by the full experiment driver; those still need to be installed in the local Julia environment. A CPLEX installation and licence are required to solve optimisation models.
+
+## Automated checks
+
+GitHub Actions runs the data-reader test suite on pushes, pull requests targeting `main`, and manual workflow dispatches. The tests load every supplied `.dat` instance with `Data` from `src/Data.jl` and check parsed dimensions, key array shapes and basic data validity. They do not instantiate CPLEX, build optimisation models, or execute the Benders algorithm. Consequently, a passing CI run validates instance parsing, not solver-backed algorithmic correctness.
+
+Run the same checks locally from the repository root:
+
+```sh
+julia --project=. -e 'using Pkg; Pkg.instantiate()'
+julia --project=. test/runtests.jl
+```
 
 ## Run the default experiment
 
