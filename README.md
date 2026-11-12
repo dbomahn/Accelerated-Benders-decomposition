@@ -36,15 +36,22 @@ Each `.dat` file is read by `Data` in `src/Data.jl`. It begins with the six netw
 ## Requirements
 
 - Julia and the packages imported by `src/AcceleratedBD.jl`.
-- A working CPLEX installation and valid licence. The optimisation models use CPLEX through JuMP.
+- IBM ILOG CPLEX Optimization Studio, with a working CPLEX installation and a valid licence.
+- The optimisation models use CPLEX through JuMP. **CPLEX is the intended solver for this implementation; the algorithm is not presented as solver-independent.**
 
-`Project.toml` defines the lightweight environment used by the automated data-reader tests. It does not yet declare or lock all optimisation and reporting dependencies used by the full experiment driver; those still need to be installed in the local Julia environment. A CPLEX installation and licence are required to solve optimisation models.
+The CPLEX software and licence must be obtained and configured separately by each user in accordance with IBM's licensing terms. A CPLEX licence is not included with this repository. Do not commit licence files, credentials, or other private licence information to the repository, and do not put them in public CI configuration.
 
-## Automated checks
+`Project.toml` defines the lightweight environment used by the automated data-reader tests. It does not yet declare or lock all optimisation and reporting dependencies used by the full experiment driver; those still need to be installed in the local Julia environment.
 
-GitHub Actions runs the data-reader test suite on pushes, pull requests targeting `main`, and manual workflow dispatches. The tests load every supplied `.dat` instance with `Data` from `src/Data.jl` and check parsed dimensions, key array shapes and basic data validity. They do not instantiate CPLEX, build optimisation models, or execute the Benders algorithm. Consequently, a passing CI run validates instance parsing, not solver-backed algorithmic correctness.
+## Automated checks and testing scope
 
-Run the same checks locally from the repository root:
+GitHub Actions runs the public data-reader test suite on pushes, pull requests targeting `main`, and manual workflow dispatches. The tests load every supplied `.dat` instance with `Data` from `src/Data.jl` and check parsed dimensions, key array shapes and basic data validity.
+
+The public CI workflow deliberately does **not** install or run CPLEX. It therefore does not build or solve the optimisation models, or execute the accelerated Benders algorithm. A passing CI run confirms the tested input-data parsing checks only; it is not evidence of solver-backed model correctness, numerical performance, or reproduction of the computational results.
+
+To test the optimisation workflow, configure Julia's full runtime dependencies and a separately licensed CPLEX installation in your own environment, then run the experiment as described below. CPLEX-dependent tests are not part of the public GitHub Actions workflow because this repository does not distribute a CPLEX licence.
+
+Run the data-reader checks locally from the repository root:
 
 ```sh
 julia --project=. -e 'using Pkg; Pkg.instantiate()'
